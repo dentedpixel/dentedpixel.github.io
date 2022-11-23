@@ -14,7 +14,7 @@ struct DentedPixel: Website {
     }
 
     // Update these properties to configure your website:
-    var url = URL(string: "https://DentedPixel.com")!
+    var url = URL(string: "https://dentedpixel.com")!
     var name = "Dented Pixel"
     var description = "Apps for education and fun"
     var language: Language { .english }
@@ -22,4 +22,6 @@ struct DentedPixel: Website {
 }
 
 // This will generate your website using the built-in Foundation theme:
-try DentedPixel().publish(withTheme: .foundation)
+let site = try DentedPixel().publish(withTheme: .foundation)
+
+PublishingStep<site>.copyFile(at: Path("Output"), to: Path("docs"))
