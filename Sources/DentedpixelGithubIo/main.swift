@@ -23,4 +23,5 @@ struct DentedPixel: Website {
 
 // This will generate your website using the built-in Foundation theme:
 let site = DentedPixel()
+
 let publish = try site.publish(withTheme: .foundation)

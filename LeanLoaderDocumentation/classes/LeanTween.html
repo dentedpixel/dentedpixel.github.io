@@ -1,0 +1,6842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>LeanTween - LeanLoader</title>
+    <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.8.0pr2&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-23694672-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script src="..&#x2F;assets/js/leantween.js"></script>
+    <link rel="shortcut icon" type="image/png" href="..&#x2F;assets/favicon.png">
+    <script src="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;combo?3.8.0pr2&#x2F;build&#x2F;yui&#x2F;yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><a href="http://dentedpixel.com/developer-diary/leantween-speed-comparison-to-itween/"><img src="http:&#x2F;&#x2F;s3.amazonaws.com&#x2F;dentedpixel.com&#x2F;LeanTween&#x2F;leantween-logo.png" title="LeanLoader"></a></h1> <div style="position:absolute; left:146px; top:90px;">- Developed by <a href="http://www.dentedpixel.com">Dented Pixel</a></div>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: LeanLoader 0.2</em><br>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="YJPUT3RAK5VL8">
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
+
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="..&#x2F;classes/LeanTween.html">LeanTween</a></li>
+            
+                <li><a href="..&#x2F;classes/LeanTweenType.html">LeanTweenType</a></li>
+            
+                <li><a href="..&#x2F;classes/LTBezierPath.html">LTBezierPath</a></li>
+            
+                <li><a href="..&#x2F;classes/LTRect.html">LTRect</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+                <div id="advertising">
+                    <h2>Games Developed<br>by<br><a href="http://www.dentedpixel.com">Dented Pixel</a></h2><br>
+                    <a href="https://itunes.apple.com/us/app/monkeyshines/id530998075?mt=8" target="_blank"><img src="http://a5.mzstatic.com/us/r1000/102/Purple/v4/00/5c/57/005c571e-ef17-2370-6aad-058a17ff9fd9/mzm.yvphsjfk.175x175-75.jpg" /><br>Monkeyshines - A swinging good time!</a>
+                    <br>
+                    <a href="https://itunes.apple.com/us/app/princess-piano/id445283531?mt=8" target="_blank"><img src="http://a3.mzstatic.com/us/r1000/096/Purple/v4/8c/1e/05/8c1e0590-db82-1d72-2956-2b6470f37ed0/mza_4230031260893485317.175x175-75.jpg" /><br>Princess Piano - Learn musical notation<br>in this melodious adventure!</a>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1>LeanTween Class</h1>
+<div class="box meta">
+    
+
+    
+
+    
+        <div class="foundat">
+            Defined in: <a href="..&#x2F;files&#x2F;LeanTween.js.html#l451"><code>LeanTween.js:451</code></a>
+        </div>
+    
+
+    
+
+    
+</div>
+
+
+
+<div class="box intro">
+    <p>LeanTween is an efficient tweening engine for Unity3d<br><br>
+<strong id='optional'>Optional Parameters</strong> are passed in a hash table variable that is accepted at the end of every tweening function.<br>
+Values you can pass:<br>
+<strong>delay</strong>: time (or frames if you are using "useFrames") before the tween starts<br>
+<strong>ease</strong>: Function that desribes the easing you want to be used, you can pass your own or use many of the included tweens. ex: <i>{"ease":LeanTween.easeOutQuad}</i><br> 
+<strong>onComplete</strong>: Function to call at the end of the tween ex: <i>{"onComplete":functionToCallOnComplete}</i> or <i>{"onComplete":functionToCallOnComplete,"onCompleteParam":hashTableToPassToOnComplete}</i><br>
+<strong>onUpdate</strong>: Function to call on every update ex: <i>{"onUpdate":functionToCallOnUpdate}</i> or <i>{"onUpdate":functionToCallOnUpdate,"onUpdateParam":hashTableToPassToOnUpdate}</i><br>
+<strong>useEstimatedTime</strong>: This is useful if the Time.timeScale is set to zero (such as when the game is paused) or some other value and you still want the tween to move at a normal pace ex: <i>{"useEstimatedTime":true}</i><br>
+<strong>useFrames</strong>: Instead of time passed for both the delay and time value, the amount of frames that have passed is used <i>ex: {"useFrames":true}</i><br>
+<strong>onCompleteTarget</strong>: In C# if you are passing a String to the "onComplete" parameter, this variable allows you to define target to call the function than the game object you are tweening.<br>
+<strong>onUpdateTarget</strong>: The same as onCompleteTarget, but for the onUpdate function.<br>
+<strong>orientToPath</strong>: When moving objects along a bezier curve, this controls whether the object aligns itself with the curve or not
+<strong>repeat</strong>: If you wish the loop to repeat set this value to something other than 1
+<strong>loopType</strong>: If the loop is repeating you can change how it repeats (clamp by default) set this value to ping-pong: <i>ex: {"repeat":2,"loopType":LeanTweenType.pingPong}</i><br></p>
+</div>
+
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+        
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+        
+        
+        
+        
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.alpha">LeanTween.alpha</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.alphaVertex">LeanTween.alphaVertex</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.cancel">LeanTween.cancel</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.cancel">LeanTween.cancel</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.cancel">LeanTween.cancel</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.delayedCall">LeanTween.delayedCall</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.delayedCall">LeanTween.delayedCall</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.delayedCall">LeanTween.delayedCall</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.delayedCall">LeanTween.delayedCall</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.delayedCall">LeanTween.delayedCall</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.init">LeanTween.init</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.move">LeanTween.move</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.move">LeanTween.move</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.move">LeanTween.move</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.move (GUI)">LeanTween.move (GUI)</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.move (GUI)">LeanTween.move (GUI)</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.moveLocal">LeanTween.moveLocal</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.moveX">LeanTween.moveX</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.moveY">LeanTween.moveY</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.moveZ">LeanTween.moveZ</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.pause">LeanTween.pause</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.pause">LeanTween.pause</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.resume">LeanTween.resume</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.resume">LeanTween.resume</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.rotate">LeanTween.rotate</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.rotate">LeanTween.rotate</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.rotate">LeanTween.rotate</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.rotateAround">LeanTween.rotateAround</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.rotateLocal">LeanTween.rotateLocal</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.rotateX">LeanTween.rotateX</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.rotateX">LeanTween.rotateX</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.rotateY">LeanTween.rotateY</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.rotateY">LeanTween.rotateY</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.rotateZ">LeanTween.rotateZ</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.rotateZ">LeanTween.rotateZ</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.scale">LeanTween.scale</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.scale (GUI)">LeanTween.scale (GUI)</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.scale (GUI)">LeanTween.scale (GUI)</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.value">LeanTween.value</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.value">LeanTween.value</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.value">LeanTween.value</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_LeanTween.value">LeanTween.value</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+
+            
+        </div>
+
+        
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method_LeanTween.alpha" class="method item">
+    <h3 class="name"><code>LeanTween.alpha</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l2204"><code>LeanTween.js:2204</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Fade a gameobject's material to a certain alpha value. The material's shader needs to support alpha. <a href="http://owlchemylabs.com/content/">Owl labs has some excellent efficient shaders</a>.</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time with which to delay before callin the function</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time with which to delay before calling the function</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.alphaVertex" class="method item">
+    <h3 class="name"><code>LeanTween.alphaVertex</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l2226"><code>LeanTween.js:2226</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>This works by tweening the vertex colors directly.<br>
+<br>
+Vertex-based coloring is useful because you avoid making a copy of your
+object's material for each instance that needs a different color.<br>
+<br>
+A shader that supports vertex colors is required for it to work
+(for example the shaders in Mobile/Particles/)</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to alpha</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The alpha value you wish to tween to</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time with which to delay before calling the function</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.cancel" class="method item">
+    <h3 class="name"><code>LeanTween.cancel</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>id:int</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1241"><code>LeanTween.js:1241</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Cancel a specific tween for a gameObject</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>GameObject whose tweens you want to cancel</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">id:int</code>
+                        <span class="type">Int</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Id of the tween you want to cancel ex: var id:int = LeanTween.MoveX(gameObject, 5, 1.0);</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.cancel" class="method item">
+    <h3 class="name"><code>LeanTween.cancel</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>ltRect:LTRect</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>id:int</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1256"><code>LeanTween.js:1256</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Cancel a specific tween for a gameObject (GUI Methods)</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">ltRect:LTRect</code>
+                        <span class="type"><a href="../classes/LTRect.html" class="crosslink">LTRect</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>LTRect whose tweens you want to cancel</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">id:int</code>
+                        <span class="type">Int</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Id of the tween you want to cancel ex: var id:int = LeanTween.rotate(ltRect, 180);</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.cancel" class="method item">
+    <h3 class="name"><code>LeanTween.cancel</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1227"><code>LeanTween.js:1227</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Cancel all tweens that are currently targeting the gameObject</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>whose tweens you want to cancel</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.delayedCall" class="method item">
+    <h3 class="name"><code>LeanTween.delayedCall</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>delayTime:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>callback:String</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l2182"><code>LeanTween.js:2182</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Call a function after a certain amount of time has passed</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to call the Function on</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">delayTime:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time with which to delay before calling the function</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">callback:String</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Function that is called after the certain amount of time.</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.delayedCall" class="method item">
+    <h3 class="name"><code>LeanTween.delayedCall</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>delayTime:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>callback:String</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l2170"><code>LeanTween.js:2170</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Call a function after a certain amount of time has passed</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to call the Function on</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">delayTime:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time with which to delay before calling the function</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">callback:String</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Function that is called after the certain amount of time.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.delayedCall" class="method item">
+    <h3 class="name"><code>LeanTween.delayedCall</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>delayTime:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>callback:Function</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l2152"><code>LeanTween.js:2152</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Call a function after a certain amount of time has passed</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to tie this delayed function call to</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">delayTime:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time with which to delay before calling the function</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">callback:Function</code>
+                        <span class="type">Function</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Function that is called after the certain amount of time.</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.delayedCall" class="method item">
+    <h3 class="name"><code>LeanTween.delayedCall</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>delayTime:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>callback:Function</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l2139"><code>LeanTween.js:2139</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Call a function after a certain amount of time has passed</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to tie this delayed function call to</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">delayTime:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time with which to delay before calling the function</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">callback:Function</code>
+                        <span class="type">Function</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Function that is called after the certain amount of time.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.delayedCall" class="method item">
+    <h3 class="name"><code>LeanTween.delayedCall</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>delayTime:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>callback:Function</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l2120"><code>LeanTween.js:2120</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Call a function after a certain amount of time has passed</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">delayTime:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time with which to delay before calling the function</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">callback:Function</code>
+                        <span class="type">Function</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Function that is called after the certain amount of time.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.init" class="method item">
+    <h3 class="name"><code>LeanTween.init</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>maxSimultaneousTweens:int</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l492"><code>LeanTween.js:492</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>This line is optional. Here you can specify the maximum number of tweens you will use (the default is 400).  This must be called before any use of LeanTween is made for it to be effective.</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">maxSimultaneousTweens:int</code>
+                        <span class="type">Integer</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The maximum number of tweens you will use, make sure you don't go over this limit, otherwise the code will throw an error</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <p>LeanTween.init( 800 );</p>
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_LeanTween.move" class="method item">
+    <h3 class="name"><code>LeanTween.move</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:Vector3</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1802"><code>LeanTween.js:1802</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Move a GameObject to a certain location</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to move</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:Vector3</code>
+                        <span class="type">Vector3</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final positin with which to move to</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the tween in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <p><i>Javascript:</i><br>
+LeanTween.move(gameObject, Vector3(0,-3,5), 2.0, {"ease":LeanTween.easeOutQuad});<br><br>
+<i>C#:</i><br>
+Hashtable optional = new Hashtable();<br>
+optional.Add("ease":LeanTweenType.easeOutQuad);<br>
+LeanTween.move(gameObject, Vector3(0f,-3f,5f), 1.5f, optional);<br></p>
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_LeanTween.move" class="method item">
+    <h3 class="name"><code>LeanTween.move</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1873"><code>LeanTween.js:1873</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Move a GameObject along a set of bezier curves</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to move</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[]</code>
+                        <span class="type">Vector3</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>A set of points that define the curve(s) ex: Point1,Handle1,Handle2,Point2,...</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the tween in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <p><i>Javascript:</i><br>
+LeanTween.move(gameObject, [Vector3(0,0,0),Vector3(1,0,0),Vector3(1,0,0),Vector3(1,0,1)], 2.0, {"ease":LeanTween.easeOutQuad,"orientToPath":true});<br><br>
+<i>C#:</i><br>
+Hashtable optional = new Hashtable();<br>
+optional.Add("ease":LeanTweenType.easeOutQuad);<br>
+optional.Add("orientToPath":true);<br>
+LeanTween.move(gameObject, new Vector3{Vector3(0f,0f,0f),Vector3(1f,0f,0f),Vector3(1f,0f,0f),Vector3(1f,0f,1f)}, 1.5f, optional);<br></p>
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_LeanTween.move" class="method item">
+    <h3 class="name"><code>LeanTween.move</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1827"><code>LeanTween.js:1827</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Move a GameObject along a set of bezier curves</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to move</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[]</code>
+                        <span class="type">Vector3</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>A set of points that define the curve(s) ex: Point1,Handle1,Handle2,Point2,...</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the tween in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <p><i>Javascript:</i><br>
+LeanTween.move(gameObject, [Vector3(0,0,0),Vector3(1,0,0),Vector3(1,0,0),Vector3(1,0,1)], 2.0, {"ease":LeanTween.easeOutQuad,"orientToPath":true});<br><br>
+<i>C#:</i><br>
+Hashtable optional = new Hashtable();<br>
+optional.Add("ease":LeanTweenType.easeOutQuad);<br>
+optional.Add("orientToPath":true);<br>
+LeanTween.move(gameObject, new Vector3{Vector3(0f,0f,0f),Vector3(1f,0f,0f),Vector3(1f,0f,0f),Vector3(1f,0f,1f)}, 1.5f, optional);<br></p>
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_LeanTween.move (GUI)" class="method item">
+    <h3 class="name"><code>LeanTween.move (GUI)</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>ltRect:LTRect</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:Vector2</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1942"><code>LeanTween.js:1942</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Move a GUI Element to a certain location</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">ltRect:LTRect</code>
+                        <span class="type"><a href="../classes/LTRect.html" class="crosslink">LTRect</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>LTRect object that you wish to move</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:Vector2</code>
+                        <span class="type">Vector2</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final position with which to move to (pixel coordinates)</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the tween in</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.move (GUI)" class="method item">
+    <h3 class="name"><code>LeanTween.move (GUI)</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>ltRect:LTRect</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:Vector2</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1919"><code>LeanTween.js:1919</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Move a GUI Element to a certain location</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">ltRect:LTRect</code>
+                        <span class="type"><a href="../classes/LTRect.html" class="crosslink">LTRect</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>LTRect object that you wish to move</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:Vector2</code>
+                        <span class="type">Vector2</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final position with which to move to (pixel coordinates)</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the tween in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.moveLocal" class="method item">
+    <h3 class="name"><code>LeanTween.moveLocal</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:Vector3</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1959"><code>LeanTween.js:1959</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Move a GameObject to a certain location relative to the parent transform.</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:Vector3</code>
+                        <span class="type">Vector3</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final positin with which to move to</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the tween in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.moveX" class="method item">
+    <h3 class="name"><code>LeanTween.moveX</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1741"><code>LeanTween.js:1741</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Move a GameObject along the x-axis</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to move</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final position with which to move to</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the move in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.moveY" class="method item">
+    <h3 class="name"><code>LeanTween.moveY</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1760"><code>LeanTween.js:1760</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Move a GameObject along the y-axis</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to move</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final position with which to move to</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the move in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.moveZ" class="method item">
+    <h3 class="name"><code>LeanTween.moveZ</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1779"><code>LeanTween.js:1779</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Move a GameObject along the z-axis</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to move</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final position with which to move to</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the move in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.pause" class="method item">
+    <h3 class="name"><code>LeanTween.pause</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>id:int</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1285"><code>LeanTween.js:1285</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Pause a specific tween for a gameObject</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>GameObject whose tweens you want to pause</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">id:int</code>
+                        <span class="type">Int</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Id of the tween you want to cancel ex: var id:int = LeanTween.MoveX(gameObject, 5, 1.0);</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.pause" class="method item">
+    <h3 class="name"><code>LeanTween.pause</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1305"><code>LeanTween.js:1305</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Pause a specific tween for a gameObject</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>GameObject whose tweens you want to pause</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.resume" class="method item">
+    <h3 class="name"><code>LeanTween.resume</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1339"><code>LeanTween.js:1339</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Pause a specific tween for a gameObject</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>GameObject whose tweens you want to resume</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.resume" class="method item">
+    <h3 class="name"><code>LeanTween.resume</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>id:int</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1324"><code>LeanTween.js:1324</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Pause a specific tween for a gameObject</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>GameObject whose tweens you want to resume</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">id:int</code>
+                        <span class="type">Int</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Id of the tween you want to resume ex: var id:int = LeanTween.MoveX(gameObject, 5, 1.0);</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.rotate" class="method item">
+    <h3 class="name"><code>LeanTween.rotate</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:Vector3</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1545"><code>LeanTween.js:1545</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Rotate a GameObject, to values that are in passed in degrees</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:Vector3</code>
+                        <span class="type">Vector3</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final rotation with which to rotate to</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the tween in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <p><i>Javascript:</i><br>
+LeanTween.rotate(cube, Vector3(180,30,0), 1.5, {"ease":LeanTween.easeInOutQuad, "onComplete":finishedTweening});
+<br><br>
+<i>C#: </i> <br>
+Hashtable optional = new Hashtable();<br>
+optional.Add("ease":LeanTweenType.easeInOutQuad);<br>
+optional.Add("onComplete":"finishedTweening");<br>
+optional.Add("onCompleteTarget":gameObject);<br>
+LeanTween.rotate(cube, Vector3(180f,30f,0f), 1.5f, optional);<br></p>
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_LeanTween.rotate" class="method item">
+    <h3 class="name"><code>LeanTween.rotate</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:Vector3</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1527"><code>LeanTween.js:1527</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Rotate a GameObject, to values are in passed in degrees</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:Vector3</code>
+                        <span class="type">Vector3</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final rotation with which to rotate to</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the tween in</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <p><i>Javascript:</i><br>
+LeanTween.rotate(cube, Vector3(180,30,0), 1.5);
+<br><br>
+<i>C#: </i> <br>
+LeanTween.rotate(cube, Vector3(180f,30f,0f), 1.5f);<br></p>
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_LeanTween.rotate" class="method item">
+    <h3 class="name"><code>LeanTween.rotate</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>ltRect:LTRect</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Array</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1581"><code>LeanTween.js:1581</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Rotate a GUI element (using an LTRect object), to a value that is in degrees</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">ltRect:LTRect</code>
+                        <span class="type"><a href="../classes/LTRect.html" class="crosslink">LTRect</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>LTRect that you wish to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final rotation with which to rotate to</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the tween in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Array</code>
+                        <span class="type">Array</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Object Array where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <p><i>Javascript:</i><br>
+if(GUI.Button(buttonRect.rect, "Rotate"))<br>
+    LeanTween.rotate( buttonRect4, 150.0, 1.0, ["ease",LeanTween.easeOutElastic]);<br>
+GUI.matrix = Matrix4x4.identity;<br>
+<br><br>
+<i>C#: </i> <br>
+if(GUI.Button(buttonRect.rect, "Rotate"))<br>
+    LeanTween.rotate( buttonRect4, 150.0, 1.0, new object[]{"ease",LeanTween.easeOutElastic});<br>
+GUI.matrix = Matrix4x4.identity;<br></p>
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_LeanTween.rotateAround" class="method item">
+    <h3 class="name"><code>LeanTween.rotateAround</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>axis:Vector3</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>add:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1708"><code>LeanTween.js:1708</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Rotate a GameObject in the objects around an axis</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">axis:Vector3</code>
+                        <span class="type">Vector3</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final rotation with which to rotate to</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">add:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Rotate in x degrees</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the rotation in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.rotateLocal" class="method item">
+    <h3 class="name"><code>LeanTween.rotateLocal</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:Vector3</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1687"><code>LeanTween.js:1687</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Rotate a GameObject in the objects local space (on the transforms localEulerAngles object)</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:Vector3</code>
+                        <span class="type">Vector3</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final rotation with which to rotate to</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the rotation in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.rotateX" class="method item">
+    <h3 class="name"><code>LeanTween.rotateX</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1615"><code>LeanTween.js:1615</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Rotate a GameObject only on the X axis</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final x-axis rotation with which to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the rotation in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.rotateX" class="method item">
+    <h3 class="name"><code>LeanTween.rotateX</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1604"><code>LeanTween.js:1604</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Rotate a GameObject only on the X axis</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final x-axis rotation with which to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the rotation in</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.rotateY" class="method item">
+    <h3 class="name"><code>LeanTween.rotateY</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1643"><code>LeanTween.js:1643</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Rotate a GameObject only on the Y axis</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final y-axis rotation with which to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the rotation in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.rotateY" class="method item">
+    <h3 class="name"><code>LeanTween.rotateY</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1632"><code>LeanTween.js:1632</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Rotate a GameObject only on the Y axis</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final y-axis rotation with which to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the rotation in</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.rotateZ" class="method item">
+    <h3 class="name"><code>LeanTween.rotateZ</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1660"><code>LeanTween.js:1660</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Rotate a GameObject only on the Z axis</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final z-axis rotation with which to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the rotation in</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.rotateZ" class="method item">
+    <h3 class="name"><code>LeanTween.rotateZ</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1671"><code>LeanTween.js:1671</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Rotate a GameObject only on the Z axis</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final z-axis rotation with which to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the rotation in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.scale" class="method item">
+    <h3 class="name"><code>LeanTween.scale</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:Vector3</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l2007"><code>LeanTween.js:2007</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Scale a GameObject to a certain size</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to rotate</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:Vector3</code>
+                        <span class="type">Vector3</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The size with which to tween to</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the tween in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.scale (GUI)" class="method item">
+    <h3 class="name"><code>LeanTween.scale (GUI)</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>ltRect:LTRect</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:Vector2</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l2027"><code>LeanTween.js:2027</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Scale a GUI Element to a certain width and height</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">ltRect:LTRect</code>
+                        <span class="type"><a href="../classes/LTRect.html" class="crosslink">LTRect</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>LTRect object that you wish to move</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:Vector2</code>
+                        <span class="type">Vector2</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final width and height to scale to (pixel based)</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the tween in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.scale (GUI)" class="method item">
+    <h3 class="name"><code>LeanTween.scale (GUI)</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>ltRect:LTRect</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:Vector2</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l2050"><code>LeanTween.js:2050</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Scale a GUI Element to a certain width and height</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">ltRect:LTRect</code>
+                        <span class="type"><a href="../classes/LTRect.html" class="crosslink">LTRect</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>LTRect object that you wish to move</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:Vector2</code>
+                        <span class="type">Vector2</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final width and height to scale to (pixel based)</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the tween in</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <p><i>Example Javascript: </i><br>
+var bRect:LTRect = new LTRect( 0, 0, 100, 50 );<br>
+LeanTween.scale( bRect, Vector2(bRect.rect.width, bRect.rect.height) * 1.3, 0.25 );<br>
+function OnGUI(){<br>
+&nbsp; if(GUI.Button(bRect.rect, "Scale")){ }<br>
+}<br>
+<br>
+<i>Example C#: </ia> <br>
+LTRect bRect = new LTRect( 0f, 0f, 100f, 50f );<br>
+LeanTween.scale( bRect, new Vector2(150f,75f), 0.25f );<br>
+void OnGUI(){<br>
+&nbsp; if(GUI.Button(bRect.rect, "Scale")){ }<br>
+}<br></p>
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_LeanTween.value" class="method item">
+    <h3 class="name"><code>LeanTween.value</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>callOnUpdate:Function</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>from:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1430"><code>LeanTween.js:1430</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Tween any particular value, it does not need to be tied to any particular type or GameObject</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>GameObject with which to tie the tweening with. This is only used when you need to cancel this tween, it does not actually perform any operations on this gameObject</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">callOnUpdate:Function</code>
+                        <span class="type">Function</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The function that is called on every Update frame, this function needs to accept a float value ex: function updateValue( val:float ){ }</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">from:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The original value to start the tween from</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The value to end the tween on</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the tween in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the tween in</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.value" class="method item">
+    <h3 class="name"><code>LeanTween.value</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>callOnUpdate:Function</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>from:Vector3</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:Vector3</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1465"><code>LeanTween.js:1465</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Tween any particular value (Vector3), it does not need to be tied to any particular type or GameObject</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to attach the tween to</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">callOnUpdate:Function</code>
+                        <span class="type">Function</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The function that is called on every Update frame, this function needs to accept a float value ex: function updateValue( val:Vector3 ){ }</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">from:Vector3</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The original value to start the tween from</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:Vector3</code>
+                        <span class="type">Vector3</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final Vector3 with which to tween to</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the tween in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.value" class="method item">
+    <h3 class="name"><code>LeanTween.value</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>callOnUpdate:Function</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>from:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1385"><code>LeanTween.js:1385</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Tween any particular value, it does not need to be tied to any particular type or GameObject</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">callOnUpdate:Function</code>
+                        <span class="type">Function</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The function that is called on every Update frame, this function needs to accept a float value ex: function updateValue( val:float ){ }</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">from:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The original value to start the tween from</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The value to end the tween on</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the tween in</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_LeanTween.value" class="method item">
+    <h3 class="name"><code>LeanTween.value</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>gameObject:GameObject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>callOnUpdate:String</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>from:Vector3</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>to:Vector3</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>time:float</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>optional:Hashtable</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Int</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;LeanTween.js.html#l1502"><code>LeanTween.js:1502</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Tween any particular value (Vector3), it does not need to be tied to any particular type or GameObject</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">gameObject:GameObject</code>
+                        <span class="type">GameObject</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Gameobject that you wish to attach the tween to</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">callOnUpdate:String</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The function that is called on every Update frame, this function needs to accept a float value ex: function updateValue( val:Vector3 ){ }</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">from:Vector3</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The original value to start the tween from</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">to:Vector3</code>
+                        <span class="type">Vector3</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The final Vector3 with which to tween to</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">time:float</code>
+                        <span class="type">Float</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The time to complete the tween in</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">optional:Hashtable</code>
+                        <span class="type">Hashtable</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Hashtable where you can pass <a href="#optional">optional items</a>.</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Int</span>:
+                    
+                    Returns an integer id that is used to distinguish this tween
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+
+        
+
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="..&#x2F;assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="..&#x2F;assets/js/yui-prettify.js"></script>
+<script src="..&#x2F;assets/../api.js"></script>
+<script src="..&#x2F;assets/js/api-filter.js"></script>
+<script src="..&#x2F;assets/js/api-list.js"></script>
+<script src="..&#x2F;assets/js/api-search.js"></script>
+<script src="..&#x2F;assets/js/apidocs.js"></script>
+</body>
+</html>
