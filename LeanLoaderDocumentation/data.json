@@ -1,0 +1,493 @@
+{
+    "project": {
+        "name": "LeanLoader",
+        "description": "An Eficient Loading/Caching Library for Unity3d",
+        "version": "LeanLoader 0.2",
+        "url": "http://dentedpixel.com/developer-diary/leantween-speed-comparison-to-itween/",
+        "logo": "http://dentedpixel.com/LeanLoaderDocumentation/assets/docs-icon.jpg"
+    },
+    "files": {
+        "LeanLoader.cs": {
+            "name": "LeanLoader.cs",
+            "modules": {},
+            "classes": {
+                "LeanJSON": 1,
+                "LLOptions": 1,
+                "LLStreamingSave": 1,
+                "LeanLoading": 1,
+                "LeanLoader": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "LeanJSON": {
+            "name": "LeanJSON",
+            "shortname": "LeanJSON",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "LeanLoader.cs",
+            "line": 36,
+            "description": "JSON object for parsing a string into a useable JSON object",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "str:String",
+                    "description": "String of representing the JSON object (will be parsed and made into an easily readable Dictionary<string,string> object)",
+                    "type": "String"
+                }
+            ]
+        },
+        "LLOptions": {
+            "name": "LLOptions",
+            "shortname": "LLOptions",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "LeanLoader.cs",
+            "line": 360,
+            "description": "Set options for the LeanLoader",
+            "is_constructor": 1
+        },
+        "LLStreamingSave": {
+            "name": "LLStreamingSave",
+            "shortname": "LLStreamingSave",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "LeanLoader.cs",
+            "line": 554,
+            "description": "Helper class for saving large files over a period of time, to avoid frame-rate hiccups",
+            "is_constructor": 1
+        },
+        "LeanLoading": {
+            "name": "LeanLoading",
+            "shortname": "LeanLoading",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "LeanLoader.cs",
+            "line": 673,
+            "description": "Keep track of the loading progress of the asset, as well as other attributes",
+            "is_constructor": 1
+        },
+        "LeanLoader": {
+            "name": "LeanLoader",
+            "shortname": "LeanLoader",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "LeanLoader.cs",
+            "line": 730,
+            "description": "Load assets from the web and cache them for faster performance and offline use",
+            "is_constructor": 1
+        }
+    },
+    "classitems": [
+        {
+            "file": "LeanLoader.cs",
+            "line": 178,
+            "description": "Retrieve the object on the associated key (this is used when the JSON has nested JSON objects)",
+            "itemtype": "method",
+            "name": "Object",
+            "params": [
+                {
+                    "name": "key:String",
+                    "description": "String The key of the associated object you wish to retrieve",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Value for key",
+                "type": "LeanJSON"
+            },
+            "class": "LeanJSON"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 189,
+            "description": "Retrieve the an array for the associated key (returns a LeanJSON[] Array).",
+            "itemtype": "method",
+            "name": "Array",
+            "params": [
+                {
+                    "name": "key:String",
+                    "description": "String The key of the associated array you wish to retrieve",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "LeanJSON[] Array for key",
+                "type": "Array"
+            },
+            "class": "LeanJSON"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 276,
+            "description": "Retrieve the string the associated key",
+            "itemtype": "method",
+            "name": "String",
+            "params": [
+                {
+                    "name": "key:String",
+                    "description": "String The key of the associated string you wish to retrieve",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Value for key",
+                "type": "String"
+            },
+            "class": "LeanJSON"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 287,
+            "description": "Retrieve the double value for the associated key",
+            "itemtype": "method",
+            "name": "Double",
+            "params": [
+                {
+                    "name": "key:String",
+                    "description": "String The key of the associated string you wish to retrieve",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Value for key",
+                "type": "Double"
+            },
+            "class": "LeanJSON"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 298,
+            "description": "Retrieve the float value for the associated key",
+            "itemtype": "method",
+            "name": "Float",
+            "params": [
+                {
+                    "name": "key:String",
+                    "description": "String The key of the associated string you wish to retrieve",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Value for key",
+                "type": "Float"
+            },
+            "class": "LeanJSON"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 309,
+            "description": "Retrieve the int value for the associated key",
+            "itemtype": "method",
+            "name": "Int",
+            "params": [
+                {
+                    "name": "key:String",
+                    "description": "String The key of the associated string you wish to retrieve",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Value for key",
+                "type": "Int"
+            },
+            "class": "LeanJSON"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 320,
+            "description": "Retrieve the boolean value for the associated key",
+            "itemtype": "method",
+            "name": "Boolean",
+            "params": [
+                {
+                    "name": "key:String",
+                    "description": "String The key of the associated string you wish to retrieve",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Value for key",
+                "type": "Boolean"
+            },
+            "class": "LeanJSON"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 370,
+            "description": "Set the callback for the asset once it is loaded (image loading)",
+            "itemtype": "method",
+            "name": "LLOptions().setOnLoad",
+            "params": [
+                {
+                    "name": "onLoad:System.Action<Texture2D>",
+                    "description": "System.Action<Texture2D> The method that is called once the image is loaded",
+                    "type": "System.Action<Texture2D>"
+                }
+            ],
+            "class": "LLOptions"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 385,
+            "description": "Set the callback for the asset once it is loaded (data loading)",
+            "itemtype": "method",
+            "name": "LLOptions().setOnLoad",
+            "params": [
+                {
+                    "name": "onLoad:System.Action<string>",
+                    "description": "System.Action<string> The method that is called once the data is loaded",
+                    "type": "System.Action<string>"
+                }
+            ],
+            "class": "LLOptions"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 400,
+            "description": "Set the callback for the asset once it is loaded (data loading JSON specific)",
+            "itemtype": "method",
+            "name": "LLOptions().setOnLoad",
+            "params": [
+                {
+                    "name": "onLoad:System.Action<LeanJSON>",
+                    "description": "System.Action<LeanJSON> The method that is called once the data is loaded",
+                    "type": "System.Action<LeanJSON>"
+                }
+            ],
+            "class": "LLOptions"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 415,
+            "description": "Set the callback for the asset once it is loaded (audio loading)",
+            "itemtype": "method",
+            "name": "LLOptions().setOnLoad",
+            "params": [
+                {
+                    "name": "onLoad:System.Action<AudioClip>",
+                    "description": "System.Action<AudioClip> The method that is called once the audio is loaded",
+                    "type": "System.Action<AudioClip>"
+                }
+            ],
+            "class": "LLOptions"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 430,
+            "description": "Set the callback for error method that is called if it encounters any issues while loading",
+            "itemtype": "method",
+            "name": "LLOptions().setOnError",
+            "params": [
+                {
+                    "name": "onError:System.Action<string>",
+                    "description": "System.Action<string> The method that is called when if it encounters an error",
+                    "type": "System.Action<string>"
+                }
+            ],
+            "class": "LLOptions"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 441,
+            "description": "Set Post parameters in the server call",
+            "itemtype": "method",
+            "name": "LLOptions().setPostParams",
+            "params": [
+                {
+                    "name": "dictionary:Dictionary<string,",
+                    "description": "string> Dictionary<string, string> Add a dictionary of string values that will be posted to the server call",
+                    "type": "Dictionary<string, string>"
+                }
+            ],
+            "class": "LLOptions"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 452,
+            "description": "Set Post parameters in the server call",
+            "itemtype": "method",
+            "name": "LLOptions().setPostParams",
+            "params": [
+                {
+                    "name": "hashtable:Hashtable",
+                    "description": "Hashtable Add a hashtable of values that will be posted to the server call",
+                    "type": "Hashtable"
+                }
+            ],
+            "class": "LLOptions"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 484,
+            "description": "Set the use of caching. On subsequent calls if the cache-life is still valid, it will retrieve it from the cache first",
+            "itemtype": "method",
+            "name": "LLOptions().setUseCache",
+            "params": [
+                {
+                    "name": "useCache:boolean",
+                    "description": "boolean determining whether or not to cache this item (and retrieve from cache in subsequent calls)",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "LLOptions"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 495,
+            "description": "This mode of caching only pulls up the cache as a backup (if internet is not available, or it has an issue reaching the asset)",
+            "itemtype": "method",
+            "name": "LLOptions().setUseCacheAsBackup",
+            "params": [
+                {
+                    "name": "useCacheAsBackup:boolean",
+                    "description": "boolean determining whether or not to retrieve a cached version as a backup to getting the most up-to-date version",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "LLOptions"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 506,
+            "description": "Set the cache life of the asset (in seconds)",
+            "itemtype": "method",
+            "name": "LLOptions().setCacheLife",
+            "params": [
+                {
+                    "name": "cacheLife:int",
+                    "description": "int value in seconds specifying the life-time of the cached asset. Once this value is exceded a new version will be retrieved.",
+                    "type": "Int"
+                }
+            ],
+            "class": "LLOptions"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 566,
+            "description": "The amount of loops that are spent on every update decoding audio data (decrease if you are having performance issues)",
+            "itemtype": "property",
+            "name": "AUDIO_DECODE_EVERY",
+            "type": "{int}",
+            "default": "40000",
+            "class": "LLStreamingSave"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 574,
+            "description": "The amount of loops that are spent on every update encoding audio date (decrease if you are having performance issues)",
+            "itemtype": "property",
+            "name": "AUDIO_ENCODE_EVERY",
+            "type": "{int}",
+            "default": "5000",
+            "class": "LLStreamingSave"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 681,
+            "description": "The name the asset is stored as (useful for deleting later)",
+            "itemtype": "property",
+            "name": "cacheName",
+            "type": "{string}",
+            "class": "LeanLoading"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 688,
+            "description": "Whether the cache being used for this asset",
+            "itemtype": "property",
+            "name": "cacheUsed",
+            "default": "false",
+            "type": "{boolean}",
+            "class": "LeanLoading"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 696,
+            "description": "The WWW object that is used to load the object (in case you need to access anything specific)",
+            "itemtype": "property",
+            "name": "www",
+            "type": "{WWW}",
+            "class": "LeanLoading"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 709,
+            "description": "How much of the asset has loaded (from 0.0f to 1.0f)",
+            "itemtype": "property",
+            "name": "progress",
+            "type": "{float}",
+            "default": "0.0f",
+            "class": "LeanLoading"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 810,
+            "description": "Remove a specific cached item",
+            "itemtype": "method",
+            "name": "LeanLoader.deleteCache",
+            "params": [
+                {
+                    "name": "dataURL:String",
+                    "description": "The path of the asset you want to delete from the cache",
+                    "type": "String"
+                }
+            ],
+            "class": "LeanLoader"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 823,
+            "description": "Removes all of the LeanLoader cached items from the PlayerPrefs",
+            "itemtype": "method",
+            "name": "LeanLoader.deleteCacheAll",
+            "class": "LeanLoader"
+        },
+        {
+            "file": "LeanLoader.cs",
+            "line": 837,
+            "description": "Load an asset from the internet",
+            "itemtype": "method",
+            "name": "LeanLoader.load",
+            "params": [
+                {
+                    "name": "dataURL:String",
+                    "description": "URL of the data you wish to load",
+                    "type": "String"
+                },
+                {
+                    "name": "options:LLOptions",
+                    "description": "The optional parameters you wish to specify for the loading of the asset (use caching, onComplete handlers, etc...)",
+                    "type": "LLOptions"
+                }
+            ],
+            "return": {
+                "description": "Returns a LeanLoading object where you can track the assets progress, and other attributes",
+                "type": "LeanLoading"
+            },
+            "example": [
+                " <i>Javascript:</i><br>\nLeanLoader.load(\"http://dentedpixel.com/assets/Monkeyshines.png\", LLOptions().setOnComplete( imageLoaded ).setUseCache( true ));\nfunction imageLoaded( tex:Texture2D ){<br>\n\tDebug.Log(\"image loaded:\"+tex);<br>\n}<br>\n<br><br>\n<i>C#: </i> <br>\nLeanLoader.load(\"http://dentedpixel.com/assets/Monkeyshines.png\", new LLOptions().setOnComplete( imageLoaded ).setUseCache( true ));\nvoid imageLoaded( Texture2D tex ){<br>\n\tDebug.Log(\"image loaded:\"+tex);<br>\n}<br>\n<br><br>"
+            ],
+            "class": "LeanLoader"
+        }
+    ],
+    "warnings": []
+}

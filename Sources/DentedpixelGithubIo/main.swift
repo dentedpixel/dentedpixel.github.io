@@ -3,7 +3,7 @@ import Publish
 import Plot
 
 // This type acts as the configuration for your website.
-struct DentedpixelGithubIo: Website {
+struct DentedPixel: Website {
     enum SectionID: String, WebsiteSectionID {
         // Add the sections that you want your website to contain here:
         case posts
@@ -14,12 +14,14 @@ struct DentedpixelGithubIo: Website {
     }
 
     // Update these properties to configure your website:
-    var url = URL(string: "https://your-website-url.com")!
-    var name = "DentedpixelGithubIo"
-    var description = "A description of DentedpixelGithubIo"
+    var url = URL(string: "https://dentedpixel.com")!
+    var name = "Dented Pixel"
+    var description = "Apps for education and fun"
     var language: Language { .english }
     var imagePath: Path? { nil }
 }
 
 // This will generate your website using the built-in Foundation theme:
-try DentedpixelGithubIo().publish(withTheme: .foundation)
+let site = DentedPixel()
+
+let publish = try site.publish(withTheme: .foundation)

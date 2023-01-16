@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>LeanLoader.cs - LeanLoader</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.8.0pr2/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-23694672-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script src="../assets/js/leantween.js"></script>
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.8.0pr2/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><a href="http://dentedpixel.com/developer-diary/leantween-speed-comparison-to-itween/"><img src="http://dentedpixel.com/LeanLoaderDocumentation/assets/docs-icon.jpg" title="LeanLoader"></a></h1> <div style="position:absolute; left:146px; top:90px;">- Developed by <a href="http://www.dentedpixel.com">Dented Pixel</a></div>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: LeanLoader 0.2</em><br>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="YJPUT3RAK5VL8">
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
+
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/LeanJSON.html">LeanJSON</a></li>
+            
+                <li><a href="../classes/LeanLoader.html">LeanLoader</a></li>
+            
+                <li><a href="../classes/LeanLoading.html">LeanLoading</a></li>
+            
+                <li><a href="../classes/LLOptions.html">LLOptions</a></li>
+            
+                <li><a href="../classes/LLStreamingSave.html">LLStreamingSave</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+                <div id="advertising">
+                    <h2>Games Developed<br>by<br><a href="http://www.dentedpixel.com">Dented Pixel</a></h2><br>
+                    <a href="https://itunes.apple.com/us/app/monkeyshines/id530998075?mt=8" target="_blank"><img src="http://a5.mzstatic.com/us/r1000/102/Purple/v4/00/5c/57/005c571e-ef17-2370-6aad-058a17ff9fd9/mzm.yvphsjfk.175x175-75.jpg" /><br>Monkeyshines - A swinging good time!</a>
+                    <br>
+                    <a href="https://itunes.apple.com/us/app/princess-piano/id445283531?mt=8" target="_blank"><img src="http://a3.mzstatic.com/us/r1000/096/Purple/v4/8c/1e/05/8c1e0590-db82-1d72-2956-2b6470f37ed0/mza_4230031260893485317.175x175-75.jpg" /><br>Princess Piano - Learn musical notation<br>in this melodious adventure!</a>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: LeanLoader.cs</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+public class LeanTest : object {
+	private static int tests = 0;
+	private static int passes = 0;
+
+	public static void debug( string name, bool didPass){
+		float len = printOutLength(name);
+		string logName = &quot;&lt;b&gt;&quot;+ name + &quot;&lt;/b&gt; &quot; + &quot;&quot;.PadRight(40-(int)len,&quot;_&quot;[0]) + &quot; [ &quot;+ (didPass ? &quot;&lt;color=green&gt;pass&lt;/color&gt;&quot; : &quot;&lt;color=red&gt;FAIL&lt;/color&gt;&quot;) +&quot; ]&quot;;
+		Debug.Log(logName);
+		if(didPass)
+			passes++;
+		tests++;
+	}
+
+	public static float printOutLength( string str ){
+		float len = 0.0f;
+		for(int i = 0; i &lt; str.Length; i++){
+			if(str[i]==&quot;I&quot;[0]){
+				len += 0.5f;
+			}else{
+				len += 1.0f;
+			}
+		}
+		return len;
+	}
+
+	public static void overview(){
+
+	}
+}
+
+/**
+* JSON object for parsing a string into a useable JSON object
+*
+* @class LeanJSON
+* @constructor
+* @param {String} str:String String of representing the JSON object (will be parsed and made into an easily readable Dictionary&lt;string,string&gt; object)
+*/
+public class LeanJSON : Dictionary&lt;string,string&gt; {
+	private static char begJson = &quot;{&quot;[0];
+	private static char endJson = &quot;}&quot;[0];
+	private static char begArr = &quot;[&quot;[0];
+	private static char endArr = &quot;]&quot;[0];
+	private static char quoteDouble = &quot;\&quot;&quot;[0];
+	private static char quoteSingle = &quot;&#x27;&quot;[0];
+	private static char colon = &quot;:&quot;[0];
+	private static char comma = &quot;,&quot;[0];
+	private static char escape = &quot;\\&quot;[0];
+
+	public override string ToString(){
+		return DictToString(this, null);
+	}
+
+	public static string DictToString&lt;T, V&gt;(IEnumerable&lt;KeyValuePair&lt;T, V&gt;&gt; items, string format)
+	{
+	    format = string.IsNullOrEmpty(format) ? &quot;{0}=&#x27;{1}&#x27;, &quot; : format; 
+
+	    StringBuilder itemString = new StringBuilder();
+	    itemString.Append(&quot;{&quot;);
+	    foreach(var item in items)
+	        itemString.AppendFormat(format, item.Key, item.Value);
+
+	    itemString.Append(&quot;}&quot;);
+	    return itemString.ToString(); 
+	}
+
+	public LeanJSON( string str ){
+		int beg = str.IndexOf(begJson);
+		int end = str.LastIndexOf(endJson);
+		str = str.Substring(beg+1,end-beg-1);
+		// Debug.Log(&quot;short:&quot;+str);
+
+		bool isDoubleQuoted = false;
+		bool hasStartedQuote = false;
+		int hasStartedEscape = -1;
+		int closureLevel = 0;
+		int lastComma = 0;
+		int endPoint = str.Length-1;
+		List&lt;string&gt; commaSplit = new List&lt;string&gt;();
+		for(int i = 0; i &lt;= endPoint; i++){
+			/*if(str[i]==comma){
+				Debug.Log(&quot;char[&quot;+i+&quot;]:&quot;+str[i] + &quot; closureLevel:&quot;+closureLevel+&quot; hasStartedEscape:&quot;+hasStartedEscape+&quot; hasStartedQuote:&quot;+hasStartedQuote+&quot; lastComma:&quot;+lastComma+&quot; part:&quot;+str.Substring(lastComma,i-lastComma));
+			}*/
+			// split on comma
+			if(hasStartedEscape&lt;=0){
+				if(closureLevel==0){ // only parse if it is on the first level
+					if(hasStartedQuote){ // Check if the quote area has ended
+						if(isDoubleQuoted){
+							if(str[i]==quoteDouble){
+								hasStartedQuote = false;
+							}
+						}else{
+							if(str[i]==quoteSingle){
+								hasStartedQuote = false;
+							}
+						}
+					}else{
+						if(str[i]==comma){ // Push to array
+							string split = str.Substring(lastComma,i-lastComma);
+							// Debug.Log(&quot;split:&quot;+split);
+							commaSplit.Add( split );
+							lastComma = i + 1;
+						}else if(str[i]==escape){
+							hasStartedEscape = 2;
+						}else if(hasStartedEscape&lt;=0){
+							if(str[i]==quoteDouble){
+								isDoubleQuoted = true;
+								hasStartedQuote = true;
+							}else if(str[i]==quoteSingle){
+								isDoubleQuoted = false;
+								hasStartedQuote = true;
+							}	
+						}
+					}
+				}
+				if(i==endPoint){ // at end of string, push remaining
+					string split = str.Substring(lastComma,i-lastComma+1);
+					split = split.Replace(@&quot;\&quot;, string.Empty); // strip off any escape characters from the strings
+					commaSplit.Add( split );
+					// Debug.Log(&quot;split:&quot;+split);
+				}
+
+				if(hasStartedQuote==false){ // increment and decrement closure level
+					if(str[i]==begJson){
+						closureLevel++;
+					}else if(str[i]==endJson){
+						// Debug.Log(&quot;decrementing part:&quot;+str.Substring(lastComma,i-lastComma));
+						closureLevel--;
+					}else if(str[i]==begArr){
+						closureLevel++;
+					}else if(str[i]==endArr){
+						// Debug.Log(&quot;decrementing part:&quot;+str.Substring(lastComma,i-lastComma));
+						closureLevel--;
+					}
+				}
+			}
+
+			if(hasStartedEscape&gt;=0){
+				// Debug.LogError(&quot;Escapes exist! part:&quot;+str.Substring(lastComma,i));
+				hasStartedEscape--;
+			}
+		}
+		
+		for(int i = 0; i &lt; commaSplit.Count; i++){
+			// NEED to fix, colons can be hidden inside strings
+			if(commaSplit[i].Length&gt;1){
+				int colonPoint = commaSplit[i].IndexOf(colon);
+				string[] colonSplit = new string[]{ commaSplit[i].Substring(0,colonPoint), commaSplit[i].Substring(colonPoint+1) } ;
+				// Debug.Log(&quot;colon 0:&quot;+colonSplit[0] + &quot; 1:&quot;+ colonSplit[1]);
+				// Trim quotes
+				for(int j = 0; j &lt; colonSplit.Length; j++){
+					// Trim double quotes
+					char firstChar = colonSplit[j][0];
+					
+					if(firstChar==quoteDouble){
+						end = colonSplit[j].LastIndexOf(quoteDouble);
+						// Debug.Log(&quot;colonSplit[j]:&quot;+colonSplit[j]+&quot; beg:&quot;+beg+&quot; end:&quot;+end);
+						colonSplit[j] = colonSplit[j].Substring(1,end-1);
+					}else{
+						// Trim single quotes
+						if(firstChar==quoteSingle){
+							end = colonSplit[j].LastIndexOf(quoteSingle);
+							colonSplit[j] = colonSplit[j].Substring(1,end-1);
+						}
+					}
+				}
+				// Debug.Log(&quot;trimmed colon 0:&quot;+colonSplit[0] + &quot; 1:&quot;+ colonSplit[1]);
+				// Debug.Log(&quot;key:&quot;+colonSplit[0]+&quot; val:&quot;+colonSplit[1]);
+				this[ colonSplit[0] ] = colonSplit[1];
+			}
+		}
+	}
+
+	/**
+	* Retrieve the object on the associated key (this is used when the JSON has nested JSON objects)
+	* 
+	* @method Object
+	* @param {String} key:String String The key of the associated object you wish to retrieve
+	* @return {LeanJSON} Value for key
+	*/
+	public LeanJSON Object( string key ){
+		return new LeanJSON( this[key] );
+	}
+
+	/**
+	* Retrieve the an array for the associated key (returns a LeanJSON[] Array). 
+	* 
+	* @method Array
+	* @param {String} key:String String The key of the associated array you wish to retrieve
+	* @return {Array} LeanJSON[] Array for key
+	*/
+	public LeanJSON[] Array( string key){
+		string str = this[key];
+		int beg = str.IndexOf(begArr);
+		int end = str.LastIndexOf(endArr);
+		str = str.Substring(beg+1,end-beg-1);
+
+		bool isDoubleQuoted = false;
+		bool hasStartedQuote = false;
+		int hasStartedEscape = -1;
+		int closureLevel = 0;
+		int lastComma = 0;
+		int endPoint = str.Length-1;
+		List&lt;string&gt; commaSplit = new List&lt;string&gt;();
+		for(int i = 0; i &lt;= endPoint; i++){
+			/*if(str[i]==comma){
+				Debug.Log(&quot;char[&quot;+i+&quot;]:&quot;+str[i] + &quot; closureLevel:&quot;+closureLevel+&quot; hasStartedEscape:&quot;+hasStartedEscape+&quot; hasStartedQuote:&quot;+hasStartedQuote+&quot; lastComma:&quot;+lastComma+&quot; part:&quot;+str.Substring(lastComma,i-lastComma));
+			}*/
+			// split on comma
+			if(hasStartedEscape&lt;=0){
+				if(closureLevel==0){ // only parse if it is on the first level
+					if(hasStartedQuote){ // Check if the quote area has ended
+						if(isDoubleQuoted){
+							if(str[i]==quoteDouble){
+								hasStartedQuote = false;
+							}
+						}else{
+							if(str[i]==quoteSingle){
+								hasStartedQuote = false;
+							}
+						}
+					}else{
+						if(str[i]==comma){ // Push to array
+							string split = str.Substring(lastComma,i-lastComma);
+							// Debug.Log(&quot;split:&quot;+split);
+							commaSplit.Add( split );
+							lastComma = i + 1;
+						}else if(str[i]==escape){
+							hasStartedEscape = 2;
+						}else if(hasStartedEscape&lt;=0){
+							if(str[i]==quoteDouble){
+								isDoubleQuoted = true;
+								hasStartedQuote = true;
+							}else if(str[i]==quoteSingle){
+								isDoubleQuoted = false;
+								hasStartedQuote = true;
+							}	
+						}
+					}
+				}
+				if(i==endPoint){ // at end of string, push remaining
+					string split = str.Substring(lastComma,i-lastComma+1);
+					split = split.Replace(@&quot;\&quot;, string.Empty); // strip off any escape characters from the strings
+					commaSplit.Add( split );
+					// Debug.Log(&quot;split:&quot;+split);
+				}
+
+				if(hasStartedQuote==false){ // increment and decrement closure level
+					if(str[i]==begJson){
+						closureLevel++;
+					}else if(str[i]==endJson){
+						// Debug.Log(&quot;decrementing part:&quot;+str.Substring(lastComma,i-lastComma));
+						closureLevel--;
+					}
+				}
+			}
+
+			if(hasStartedEscape&gt;=0){
+				// Debug.LogError(&quot;Escapes exist! part:&quot;+str.Substring(lastComma,i));
+				hasStartedEscape--;
+			}
+		}
+		LeanJSON[] jsonArr = new LeanJSON[ commaSplit.Count ];
+		for(int i = 0; i &lt; jsonArr.Length; i++){
+			if(commaSplit[i].Length&gt;2)
+				jsonArr[i] = new LeanJSON( commaSplit[i] );
+		}
+
+		return jsonArr;
+	}
+
+	/**
+	* Retrieve the string the associated key 
+	* 
+	* @method String
+	* @param {String} key:String String The key of the associated string you wish to retrieve
+	* @return {String} Value for key
+	*/
+	public string String( string key ){
+		return this[key];
+	}
+
+	/**
+	* Retrieve the double value for the associated key 
+	* 
+	* @method Double
+	* @param {String} key:String String The key of the associated string you wish to retrieve
+	* @return {double} Value for key
+	*/
+	public float Double( string key ){
+		return double.Parse( this[key] );
+	}
+
+	/**
+	* Retrieve the float value for the associated key 
+	* 
+	* @method Float
+	* @param {String} key:String String The key of the associated string you wish to retrieve
+	* @return {float} Value for key
+	*/
+	public float Float( string key ){
+		return float.Parse( this[key] );
+	}
+
+	/**
+	* Retrieve the int value for the associated key 
+	* 
+	* @method Int
+	* @param {String} key:String String The key of the associated string you wish to retrieve
+	* @return {int} Value for key
+	*/
+	public int Int( string key ){
+		return int.Parse( this[key] );
+	}
+
+	/**
+	* Retrieve the boolean value for the associated key 
+	* 
+	* @method Boolean
+	* @param {String} key:String String The key of the associated string you wish to retrieve
+	* @return {boolean} Value for key
+	*/
+	public bool Boolean( string key ){
+		return bool.Parse( this[key] );
+	}
+
+	public bool Bool( string key ){
+		return bool.Parse( this[key] );
+	}
+
+}
+
+public class LLOptions : object {
+
+	public System.Action&lt;Texture2D&gt; onImageLoad;
+	public System.Action&lt;Texture2D,Dictionary&lt;string,object&gt;&gt; onImageLoadP;
+	public System.Action&lt;string&gt; onTextLoad;
+	public System.Action&lt;LeanJSON&gt; onJSONLoad;
+	public System.Action&lt;string,Dictionary&lt;string,object&gt;&gt; onTextLoadP;
+	public System.Action&lt;LeanJSON,Dictionary&lt;string,object&gt;&gt; onJSONLoadP;
+	public System.Action&lt;AudioClip&gt; onAudioLoad;
+	public System.Action&lt;AudioClip,Dictionary&lt;string,object&gt;&gt; onAudioLoadP;
+	public System.Action&lt;string&gt; onError;
+	public Dictionary&lt;string, object&gt; postParams;
+	public bool useCache;
+	public bool useCacheAsBackup;
+	public bool isImage;
+	public bool isText;
+	public bool isJSON;
+	public bool isAudio;
+	public int cacheLife;
+	public string cacheName;
+	public LeanLoading ll;
+	public Dictionary&lt;string,object&gt; onLoadParam;
+
+	/**
+	* Set options for the LeanLoader
+	*
+	* @class LLOptions
+	* @constructor
+	*/
+	public LLOptions(){
+		cacheLife = System.Int32.MaxValue;
+	}
+
+	/**
+	* Set the callback for the asset once it is loaded (image loading)
+	* 
+	* @method LLOptions().setOnLoad
+	* @param {System.Action&lt;Texture2D&gt;} onLoad:System.Action&lt;Texture2D&gt; System.Action&lt;Texture2D&gt; The method that is called once the image is loaded
+	*/
+	public LLOptions setOnLoad( System.Action&lt;Texture2D&gt; onLoad ){
+		this.onImageLoad = onLoad;
+		return this;
+	}
+	public LLOptions setOnLoad( System.Action&lt;Texture2D,Dictionary&lt;string,object&gt;&gt; onLoad ){
+		this.onImageLoadP = onLoad;
+		return this;
+	}
+
+	/**
+	* Set the callback for the asset once it is loaded (data loading)
+	* 
+	* @method LLOptions().setOnLoad
+	* @param {System.Action&lt;string&gt;} onLoad:System.Action&lt;string&gt; System.Action&lt;string&gt; The method that is called once the data is loaded
+	*/
+	public LLOptions setOnLoad( System.Action&lt;string&gt; onLoad ){
+		this.onTextLoad = onLoad;
+		return this;
+	}
+	public LLOptions setOnLoad( System.Action&lt;string,Dictionary&lt;string,object&gt;&gt; onLoad ){
+		this.onTextLoadP = onLoad;
+		return this;
+	}
+
+	/**
+	* Set the callback for the asset once it is loaded (data loading JSON specific)
+	* 
+	* @method LLOptions().setOnLoad
+	* @param {System.Action&lt;LeanJSON&gt;} onLoad:System.Action&lt;LeanJSON&gt; System.Action&lt;LeanJSON&gt; The method that is called once the data is loaded
+	*/
+	public LLOptions setOnLoad( System.Action&lt;LeanJSON&gt; onLoad ){
+		this.onJSONLoad = onLoad;
+		return this;
+	}
+	public LLOptions setOnLoad( System.Action&lt;LeanJSON,Dictionary&lt;string,object&gt;&gt; onLoad ){
+		this.onJSONLoadP = onLoad;
+		return this;
+	}
+
+	/**
+	* Set the callback for the asset once it is loaded (audio loading)
+	* 
+	* @method LLOptions().setOnLoad
+	* @param {System.Action&lt;AudioClip&gt;} onLoad:System.Action&lt;AudioClip&gt; System.Action&lt;AudioClip&gt; The method that is called once the audio is loaded
+	*/
+	public LLOptions setOnLoad( System.Action&lt;AudioClip&gt; onLoad ){
+		this.onAudioLoad = onLoad;
+		return this;
+	}
+	public LLOptions setOnLoad( System.Action&lt;AudioClip,Dictionary&lt;string,object&gt;&gt; onLoad ){
+		this.onAudioLoadP = onLoad;
+		return this;
+	}
+
+	/**
+	* Set the callback for error method that is called if it encounters any issues while loading
+	* 
+	* @method LLOptions().setOnError
+	* @param {System.Action&lt;string&gt;} onError:System.Action&lt;string&gt; System.Action&lt;string&gt; The method that is called when if it encounters an error
+	*/
+	public LLOptions setOnError( System.Action&lt;string&gt; onError ){
+		this.onError = onError;
+		return this;
+	}
+
+	/**
+	* Set Post parameters in the server call
+	* 
+	* @method LLOptions().setPostParams
+	* @param {Dictionary&lt;string, string&gt;} dictionary:Dictionary&lt;string, string&gt; Dictionary&lt;string, string&gt; Add a dictionary of string values that will be posted to the server call
+	*/
+	public LLOptions setPostParams( Dictionary&lt;string, object&gt; dict ){
+		postParams = dict;
+		return this;
+	}
+
+	/**
+	* Set Post parameters in the server call
+	* 
+	* @method LLOptions().setPostParams
+	* @param {Hashtable} hashtable:Hashtable Hashtable Add a hashtable of values that will be posted to the server call
+	*/
+	#if !UNITY_METRO
+	public LLOptions setPostParams( Hashtable hash ){
+		postParams = new Dictionary&lt;string, object&gt;();
+		foreach (DictionaryEntry pair in hash){
+			Debug.Log(&quot;pair.Value:&quot;+pair.Value);
+			string valS;
+			var val = pair.Value;
+			if(val.GetType()==typeof(float)){
+				valS = &quot;&quot;+val;
+			}else{
+				valS = val as string;
+			}
+			postParams.Add((string)pair.Key, valS);
+		}
+		return this;
+	}
+
+	public LLOptions setOnLoadParam( Hashtable hash ){
+		this.onLoadParam = new Dictionary&lt;string, object&gt;();
+		foreach (DictionaryEntry pair in hash){
+			this.onLoadParam.Add((string)pair.Key, (object)pair.Value);
+		}
+		return this;
+	}
+	#endif
+
+	/**
+	* Set the use of caching. On subsequent calls if the cache-life is still valid, it will retrieve it from the cache first
+	* 
+	* @method LLOptions().setUseCache
+	* @param {boolean} useCache:boolean boolean determining whether or not to cache this item (and retrieve from cache in subsequent calls)
+	*/
+	public LLOptions setUseCache( bool useCache ){
+		this.useCache = useCache;
+		return this;
+	}
+
+	/**
+	* This mode of caching only pulls up the cache as a backup (if internet is not available, or it has an issue reaching the asset)
+	* 
+	* @method LLOptions().setUseCacheAsBackup
+	* @param {boolean} useCacheAsBackup:boolean boolean determining whether or not to retrieve a cached version as a backup to getting the most up-to-date version
+	*/
+	public LLOptions setUseCacheAsBackup( bool useCacheAsBackup ){
+		this.useCacheAsBackup = useCacheAsBackup;
+		return this;
+	}
+
+	/**
+	* Set the cache life of the asset (in seconds)
+	* 
+	* @method LLOptions().setCacheLife
+	* @param {int} cacheLife:int int value in seconds specifying the life-time of the cached asset. Once this value is exceded a new version will be retrieved.
+	*/
+	public LLOptions setCacheLife( int cacheLife ){
+		this.cacheLife = cacheLife;
+		return this;
+	}
+
+	public LLOptions setOnLoadParam( Dictionary&lt;string,object&gt; hash ){
+		this.onLoadParam = hash;
+		return this;
+	}
+
+	public void savePostValues(){
+		if(postParams!=null){
+			StringBuilder strBuild = new StringBuilder(100);
+
+			foreach (var key in postParams.Keys){
+				strBuild.Append(&quot;&amp;&quot;);
+				strBuild.Append((string)key);
+				strBuild.Append(&quot;=&quot;);
+				strBuild.Append((string)postParams[key]);
+			}
+
+			cacheName = strBuild.ToString();
+		}
+	}
+
+	public static Dictionary&lt;string,object&gt; dictionary( Dictionary&lt;string,object&gt; table ){
+		Dictionary&lt;string, object&gt; d = new Dictionary&lt;string, object&gt;();
+		foreach (var key in table.Keys){
+			string valS;
+			var val = table[key];
+			if(val.GetType()==typeof(float)){
+				valS = &quot;&quot;+val;
+			}else{
+				valS = val as string;
+			}
+			// Debug.Log(&quot;key:&quot;+key+&quot; value:&quot;+valS);
+			d.Add((string)key, valS);
+		}
+		return d;
+	}
+}
+
+/**
+* Helper class for saving large files over a period of time, to avoid frame-rate hiccups
+*
+* @class LLStreamingSave
+* @constructor
+*/
+
+public class LLStreamingSave : MonoBehaviour{
+
+	private static char strSplitChar = &quot;|&quot;[0];
+	private StringBuilder strBuild;
+
+	/**
+	* The amount of loops that are spent on every update decoding audio data (decrease if you are having performance issues)
+	* 
+	* @property AUDIO_DECODE_EVERY
+	* @type {int}
+	* @default 40000
+	*/
+	public static int AUDIO_DECODE_EVERY = 40000;
+	/**
+	* The amount of loops that are spent on every update encoding audio date (decrease if you are having performance issues)
+	* 
+	* @property AUDIO_ENCODE_EVERY
+	* @type {int}
+	* @default 5000
+	*/
+	public static int AUDIO_ENCODE_EVERY = 5000;
+
+	public void save( AudioClip audio, LLOptions options ){
+		StartCoroutine( serializeAudio( audio, options ) );
+	}
+
+	public void retrieve( string str, LLOptions options ){
+		StartCoroutine( deSerializeAudio( str, options ) );
+	}
+
+	IEnumerator serializeAudio( AudioClip audio, LLOptions options ) {
+		int lengthSamples = audio.samples * audio.channels;
+
+		strBuild = new StringBuilder(lengthSamples*10+100);
+		string str;
+		float[] samples = new float[lengthSamples];
+		audio.GetData(samples, 0);
+		int i = 0;
+		int j = 1;
+		while (i &lt; samples.Length) {
+        	if(j%AUDIO_ENCODE_EVERY==0){
+        		// Debug.Log(&quot;processing&quot;);
+        		yield return true;
+        	}
+			if(samples[i]&lt;0.0f){
+				str = samples[i].ToString(&quot;F7&quot;);
+			}else{
+				str = samples[i].ToString(&quot;F8&quot;);
+			}
+			strBuild.Append( str );
+			++i;
+			j++;
+		}
+		
+		strBuild.Append(&quot;|&quot; + audio.name);
+		strBuild.Append(&quot;|&quot; + lengthSamples);
+		strBuild.Append(&quot;|&quot; + audio.channels);
+		strBuild.Append(&quot;|&quot; + audio.frequency);
+		strBuild.Append(&quot;|&quot; + samples.Length);
+
+		try {
+			PlayerPrefs.SetString(options.cacheName, strBuild.ToString());	
+		}catch (PlayerPrefsException err) {
+			Debug.Log(&quot;Exceded Storage Limit (only usually issue on the Web Player) error: &quot; + err);
+			if(options.onError!=null)
+		        options.onError( err.ToString() );
+		}
+
+		Destroy( this );
+	}
+
+	IEnumerator deSerializeAudio( string str, LLOptions options ){
+		string[] splitGroup = str.Split( strSplitChar );
+
+		string aName = splitGroup[1];
+		int lengthSamples = int.Parse( splitGroup[2] );
+		int channels = int.Parse( splitGroup[3] );
+		int frequency = int.Parse( splitGroup[4] );
+		//Debug.Log(&quot;name:&quot;+aName+&quot; len:&quot;+lengthSamples+&quot; channels:&quot;+channels+&quot; freq:&quot;+frequency+&quot; samplesLength:&quot;+samplesLength);
+		AudioClip audio = AudioClip.Create(aName, lengthSamples/channels, channels, frequency, true, false);
+
+		string audioStr = splitGroup[0];
+		
+		float[] data = new float[lengthSamples];
+		
+		int i = 0;
+		int k = 0;
+		int j = 1;
+        while (i &lt; audioStr.Length) {
+        	if(j%AUDIO_DECODE_EVERY==0){
+        		// Debug.Log(&quot;processing&quot;);
+        		options.ll.fakeProgress = i*1.0f/audioStr.Length;
+        		yield return true;
+        	}
+            data[k] = float.Parse( audioStr.Substring(i, 10) );
+            i+=10;
+            k++;
+            j++;
+        }
+        audio.SetData( data, 0 );
+
+        if(options.onAudioLoadP!=null){
+			options.onAudioLoadP( audio, options.onLoadParam );
+		}else{
+			options.onAudioLoad( audio );
+		}
+		options.ll.fakeProgress = 1.0f;
+		
+		Destroy( this );
+	}
+}
+
+/**
+* Keep track of the loading progress of the asset, as well as other attributes
+*
+* @class LeanLoading
+* @constructor
+*/
+public class LeanLoading : object {
+
+	/**
+	* The name the asset is stored as (useful for deleting later)
+	* 
+	* @property cacheName
+	* @type {string}
+	*/
+	public string cacheName;
+	/**
+	* Whether the cache being used for this asset 
+	* 
+	* @property cacheUsed
+	* @default false
+	* @type {boolean}
+	*/
+	public bool cacheUsed;
+	/**
+	* The WWW object that is used to load the object (in case you need to access anything specific) 
+	* 
+	* @property www
+	* @type {WWW}
+	*/
+	public WWW www;
+	public float fakeProgress;
+
+	public LeanLoading(){
+		fakeProgress = -1.0f;
+	}
+
+	/**
+	* How much of the asset has loaded (from 0.0f to 1.0f)
+	* 
+	* @property progress
+	* @type {float}
+	* @default 0.0f
+	*/
+	public float progress{
+		get{
+			if(www!=null){
+				return www.progress;
+			}else if(fakeProgress&gt;=0.0f){
+				return fakeProgress;
+			}else{
+				return 0.0f;
+			}
+		}
+	}
+
+}
+
+/**
+* Load assets from the web and cache them for faster performance and offline use
+*
+* @class LeanLoader
+* @constructor
+*/
+public class LeanLoader : MonoBehaviour {
+
+	private const string CACHE_KEYS = &quot;LLCacheKeys&quot;;
+
+	private static Dictionary&lt;string, int&gt; allKeys;
+	private static char strSplitChar = &quot;|&quot;[0];
+
+	public LeanLoader(){
+		if(allKeys==null){
+			allKeys = retrieveHashtable( CACHE_KEYS );
+		}
+	}
+
+	private static LeanLoader reference;
+	private static GameObject staticGo;
+	private const string uniqueClassName = &quot;~LeanLoader&quot;;
+
+	private static void init(){
+		if(staticGo==null){
+			staticGo = GameObject.Find(uniqueClassName);
+			if(staticGo==null){
+				staticGo = new GameObject( uniqueClassName );
+				reference = staticGo.AddComponent(typeof(LeanLoader)) as LeanLoader;
+				staticGo.isStatic = true;
+				DontDestroyOnLoad( staticGo );
+				//staticGo.hideFlags = HideFlags.HideInHierarchy;
+			}else{
+				reference = staticGo.GetComponent(typeof(LeanLoader)) as LeanLoader;
+			}
+		}
+	}
+
+	private static void saveHashtable( Dictionary&lt;string, int&gt; dict, string name ){
+		int count = dict.Keys.Count;
+		StringBuilder strBuild = new StringBuilder(count*20);
+		int i = 0;
+		foreach(KeyValuePair&lt;string, int&gt; entry in dict){
+	        strBuild.Append( entry.Key );
+	        if(i&lt;count-1)
+				strBuild.Append( strSplitChar );
+
+			i++;
+		}
+		PlayerPrefs.SetString(name, strBuild.ToString()); 
+	}
+
+	private static Dictionary&lt;string, int&gt; retrieveHashtable( string name ){
+		string str = PlayerPrefs.GetString(name);
+		// Debug.Log(&quot;saved keys:&quot;+str);
+		if(str==null)
+			return new Dictionary&lt;string, int&gt;();
+
+		string[] splitGroup = str.Split( strSplitChar );
+		Dictionary&lt;string, int&gt; dict = new Dictionary&lt;string, int&gt;();
+		for(int i = 0; i &lt; splitGroup.Length; i++){
+			dict[ splitGroup[i] ] = 1;
+		}
+
+		return dict;
+	}
+
+	private static System.DateTime getLastSavedTime( string dataURL ){
+		string keyDate = dataURL+&quot;_d&quot;;
+		if(PlayerPrefs.HasKey( keyDate )){
+			string date = PlayerPrefs.GetString(keyDate);
+			string[] dateSplit = date.Split(&quot;:&quot;[0]);
+			if(dateSplit.Length&gt;6){
+				System.DateTime dateTime = new System.DateTime(System.Int32.Parse(dateSplit[0]), System.Int32.Parse(dateSplit[1]), System.Int32.Parse(dateSplit[2]), System.Int32.Parse(dateSplit[3]), System.Int32.Parse(dateSplit[4]), System.Int32.Parse(dateSplit[5]), System.Int32.Parse(dateSplit[6]) );
+				return dateTime;
+			}
+		}
+		return System.DateTime.Now;
+	}
+
+	/**
+	* Remove a specific cached item
+	* 
+	* @method LeanLoader.deleteCache
+	* @param {string} dataURL:String The path of the asset you want to delete from the cache
+	*/
+	public static void deleteCache( string dataURL ){
+		PlayerPrefs.DeleteKey(dataURL); 
+		PlayerPrefs.DeleteKey(dataURL+&quot;_w&quot;);
+		PlayerPrefs.DeleteKey(dataURL+&quot;_h&quot;);
+		PlayerPrefs.DeleteKey(dataURL+&quot;_d&quot;);
+	}
+
+	/**
+	* Removes all of the LeanLoader cached items from the PlayerPrefs
+	* 
+	* @method LeanLoader.deleteCacheAll
+	*/
+	public static void deleteCacheAll(){
+		init();
+		foreach(KeyValuePair&lt;string, int&gt; entry in allKeys){
+	        deleteCache( entry.Key );
+		}
+
+		PlayerPrefs.DeleteKey( CACHE_KEYS ); 
+	}
+
+	/**
+	* Load an asset from the internet
+	* 
+	* @method LeanLoader.load
+	* @param {String} dataURL:String URL of the data you wish to load
+	* @param {LLOptions} options:LLOptions The optional parameters you wish to specify for the loading of the asset (use caching, onComplete handlers, etc...)
+	* @return {LeanLoading} Returns a LeanLoading object where you can track the assets progress, and other attributes
+	* @example &lt;i&gt;Javascript:&lt;/i&gt;&lt;br&gt;
+	* LeanLoader.load(&quot;http://dentedpixel.com/assets/Monkeyshines.png&quot;, LLOptions().setOnComplete( imageLoaded ).setUseCache( true ));
+	* function imageLoaded( tex:Texture2D ){&lt;br&gt;
+	* 	Debug.Log(&quot;image loaded:&quot;+tex);&lt;br&gt;
+	* }&lt;br&gt;
+	* &lt;br&gt;&lt;br&gt;
+	* &lt;i&gt;C#: &lt;/i&gt; &lt;br&gt;
+	* LeanLoader.load(&quot;http://dentedpixel.com/assets/Monkeyshines.png&quot;, new LLOptions().setOnComplete( imageLoaded ).setUseCache( true ));
+	* void imageLoaded( Texture2D tex ){&lt;br&gt;
+	* 	Debug.Log(&quot;image loaded:&quot;+tex);&lt;br&gt;
+	* }&lt;br&gt;
+	* &lt;br&gt;&lt;br&gt;
+	*/
+	public static LeanLoading load( string dataURL, LLOptions options ){ 
+		init();
+
+		if(options.useCache || options.useCacheAsBackup){
+			options.savePostValues();
+		}
+		if(!string.IsNullOrEmpty(options.cacheName) ){
+			options.cacheName = dataURL+options.cacheName;
+		}else{
+			options.cacheName = dataURL;
+		}
+		// Debug.Log(&quot;options.cacheName:&quot;+options.cacheName);
+		
+		bool cacheValid = options.useCache;
+		if(options.useCacheAsBackup==false &amp;&amp; options.useCache &amp;&amp; PlayerPrefs.HasKey(options.cacheName+&quot;_d&quot;)){
+			System.DateTime dateWhenExpired = getLastSavedTime( options.cacheName );
+			int hasExpired = System.DateTime.Now.CompareTo( dateWhenExpired );
+			// Debug.Log(&quot;hasExpired:&quot;+hasExpired + &quot; dateWhenExpired:&quot;+dateWhenExpired);
+			cacheValid = hasExpired &lt; 0;
+		}
+		options.isImage = options.onImageLoad!=null || options.onImageLoadP!=null;
+		options.isText = options.onTextLoad!=null || options.onTextLoadP!=null;
+		options.isJSON = options.onJSONLoad!=null || options.onJSONLoadP!=null;
+		options.isAudio = options.onAudioLoad!=null || options.onAudioLoadP!=null;
+
+		LeanLoading ll = new LeanLoading();
+		ll.cacheUsed = cacheValid;
+		ll.cacheName = options.cacheName;
+		options.ll = ll;
+
+		string temp = PlayerPrefs.GetString(options.cacheName);
+		if(options.useCacheAsBackup==false &amp;&amp; cacheValid &amp;&amp; !string.IsNullOrEmpty(temp)){
+			loadFromCache( options);
+		}else{
+			reference.startSendData( dataURL, options );
+		}
+
+		return ll;
+	}
+
+	public static void loadFromCache( string dataURL, LLOptions options ){
+		options.cacheName = dataURL;
+		loadFromCache( options );
+	}
+
+	private static void loadFromCache( LLOptions options ){
+		string temp = PlayerPrefs.GetString(options.cacheName);
+		if(!string.IsNullOrEmpty(temp)){
+			if(options.isImage){
+				int width = PlayerPrefs.GetInt(options.cacheName+&quot;_w&quot;);
+				int height = PlayerPrefs.GetInt(options.cacheName+&quot;_h&quot;);
+				byte[] byteArray = System.Convert.FromBase64String(temp);
+				Texture2D tex = new Texture2D(width,height,TextureFormat.RGB24, false);
+				tex.LoadImage(byteArray);
+
+				if(options.onImageLoadP!=null){
+					options.onImageLoadP( tex, options.onLoadParam );
+				}else{
+					options.onImageLoad( tex );
+				}
+				options.ll.fakeProgress = 1.0f;
+		   }else if(options.isText){
+			   	if(options.onTextLoadP!=null){
+					options.onTextLoadP( temp, options.onLoadParam );
+				}else{
+					options.onTextLoad( temp );
+				}
+				options.ll.fakeProgress = 1.0f;
+		   }else if(options.isJSON){
+			   	if(options.onJSONLoadP!=null){
+					options.onJSONLoadP( new LeanJSON( temp ), options.onLoadParam );
+				}else{
+					options.onJSONLoad( new LeanJSON( temp ) );
+				}
+				options.ll.fakeProgress = 1.0f;
+		   }else if(options.isAudio){
+		   		LLStreamingSave save = staticGo.AddComponent( typeof(LLStreamingSave) ) as LLStreamingSave;
+				save.retrieve( temp, options );
+		   }
+		}
+	}
+
+	private void startSendData( string dataURL, LLOptions options ){
+		StartCoroutine( sendData( dataURL, options ) );
+	}
+
+	IEnumerator sendData( string dataURL, LLOptions options ){
+		WWWForm sendForm = null;
+
+		if(options.postParams!=null){
+			sendForm = new WWWForm();
+		    foreach(KeyValuePair&lt;string, object&gt; entry in options.postParams){
+		    	sendForm.AddField((string)entry.Key, &quot;&quot;+entry.Value );
+			}
+		}
+
+		WWW www;
+		if(sendForm!=null){
+			www = new WWW(dataURL, sendForm); 
+		}else{
+			www = new WWW(dataURL);
+		}
+		
+		options.ll.www = www;
+		yield return www;
+
+		if(!string.IsNullOrEmpty(www.error)) {
+	        Debug.Log(&quot;Error: &quot; + www.error + &quot; while loading:&quot;+dataURL);
+	        if(options.onError!=null)
+		        options.onError( www.error );
+
+		    if(options.useCacheAsBackup || options.useCache)
+		    	loadFromCache( options );
+	    } else {
+	        // Debug.Log(&quot;Receive response: &quot; + www.text + &quot; isImage:&quot;+options.isImage);
+	        if(options.isImage){
+	        	if(www.text.IndexOf(&quot;{\&quot;data\&quot;&quot;)&gt;=0){ // Work around for Facebook profile images, that provide a redirect
+	        		LeanJSON j = new LeanJSON( www.text );
+	        		LeanJSON d = j.Object(&quot;data&quot;);
+					string picUrl = d[&quot;url&quot;];
+					startSendData(picUrl, options);
+	        	}else{
+					Texture2D tex = www.texture;
+					byte[] byteArray = tex.EncodeToPNG();
+					string imgRepStr = System.Convert.ToBase64String(byteArray);
+
+					if(options.useCache||options.useCacheAsBackup){
+						try {
+							PlayerPrefs.SetString(options.cacheName, imgRepStr); 
+							PlayerPrefs.SetInt(options.cacheName+&quot;_w&quot;, tex.width);
+							PlayerPrefs.SetInt(options.cacheName+&quot;_h&quot;, tex.height);
+							saveTime( options.cacheName, options.cacheLife );
+
+							allKeys[ options.cacheName ] = 1;
+							saveHashtable( allKeys, CACHE_KEYS );
+						}catch (PlayerPrefsException err) {
+							Debug.Log(&quot;Exceded Storage Limit (only usually issue on the Web Player) error: &quot; + err);
+							if(options.onError!=null)
+						        options.onError( err.ToString() );
+						}
+					}
+					if(options.onImageLoadP!=null){
+						options.onImageLoadP( tex, options.onLoadParam );
+					}else{
+						options.onImageLoad( tex );
+					}
+				}
+	        }else if(options.isText || options.isJSON){
+	        	string response = www.text;
+
+	        	if(options.useCache||options.useCacheAsBackup){
+		        	try {
+						PlayerPrefs.SetString(options.cacheName, response);
+						saveTime( options.cacheName, options.cacheLife ); 
+
+						allKeys[ options.cacheName ] = 1;
+						saveHashtable( allKeys, CACHE_KEYS );
+					}catch (PlayerPrefsException err) {
+						Debug.Log(&quot;Exceded Storage Limit (only usually issue on the Web Player) error: &quot; + err);
+						if(options.onError!=null)
+					        options.onError( err.ToString() );
+					}
+				}
+				if(options.isText){
+					if(options.onTextLoadP!=null){
+						options.onTextLoadP( response, options.onLoadParam );
+					}else{
+						options.onTextLoad( response );
+					}
+				}else{
+					if(options.onJSONLoadP!=null){
+						options.onJSONLoadP( new LeanJSON( response ), options.onLoadParam );
+					}else{
+						options.onJSONLoad( new LeanJSON( response ) );
+					}
+				}
+	        }else if(options.isAudio){
+	        	AudioClip response = www.audioClip;
+
+	        	if(options.useCache||options.useCacheAsBackup){
+		        	try {
+						//PlayerPrefs.SetString(options.cacheName, serializeAudio(response));
+						LLStreamingSave save = gameObject.AddComponent( typeof(LLStreamingSave) ) as LLStreamingSave;
+						save.save( response, options );
+
+						saveTime( options.cacheName, options.cacheLife ); 
+
+						allKeys[ options.cacheName ] = 1;
+						saveHashtable( allKeys, CACHE_KEYS );
+					}catch (PlayerPrefsException err) {
+						Debug.Log(&quot;Exceded Storage Limit (only usually issue on the Web Player) error: &quot; + err);
+						if(options.onError!=null)
+					        options.onError( err.ToString() );
+					}
+				}
+
+				if(options.onAudioLoadP!=null){
+					options.onAudioLoadP( response, options.onLoadParam );
+				}else{
+					options.onAudioLoad( response );
+				}
+	        }
+	    }
+	}
+
+	private void saveTime( string dataURL, int lifeTime ){
+		System.DateTime future = System.DateTime.Now.Add( new System.TimeSpan(0, 0, lifeTime ) );
+
+		PlayerPrefs.SetString(dataURL+&quot;_d&quot;, &quot;&quot;+future.Year +&quot;:&quot;+ future.Month +&quot;:&quot;+ future.Day +&quot;:&quot;+ future.Hour +&quot;:&quot;+ future.Minute +&quot;:&quot;+ future.Second +&quot;:&quot;+ future.Millisecond); 
+		PlayerPrefs.Save();
+	}
+}
+	
+
+
+
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
